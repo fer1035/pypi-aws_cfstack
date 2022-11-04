@@ -6,7 +6,7 @@ import argparse
 import aws_authenticator
 
 
-__version__ = "2022.11.1.1"
+__version__ = "2022.11.1.2"
 
 
 def get_stack(
@@ -92,7 +92,7 @@ def get_params():
         usage="%(prog)s [options]",
     )
     myparser.add_argument(
-        "-v", "--version", action="version", version="%(prog)s 2022.11.1.1"
+        "-v", "--version", action="version", version="%(prog)s 2022.11.1.2"
     )
     myparser.add_argument(
         "-o",
