@@ -55,7 +55,7 @@ In Python3 authenticating with named profiles:
    import aws_cfstack
 
    aws_cfstack.get_stack(
-      '/home/username/Desktop',
+      '</output/path>',
       'profile',
       profile_name='<profile_name>'
    )
@@ -65,7 +65,7 @@ In BASH authenticating with named profiles:
 .. code-block:: BASH
 
    python [/path/to/]aws_cfstack \
-   -o <output_path> \
+   -o </output/path> \
    -m profile \
    -p <profile_name>
 
