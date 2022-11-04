@@ -68,3 +68,10 @@ In BASH authenticating with named profiles:
    -o <output_path> \
    -m profile \
    -p <profile_name>
+
+Caveat
+------
+
+- This module creates files within the specified *output_path*.
+- All stack instances whose names start with "**StackSet-**" are filtered out. This module was not intended to work with stack sets, although it can easily be expanded to do so.
+- DOS line-endings ("**\r**") are removed from the outputs. Only Unix line-endings ("**\n**") are retained.
