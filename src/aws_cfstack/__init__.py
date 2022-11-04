@@ -6,7 +6,7 @@ import argparse
 import aws_authenticator
 
 
-__version__ = "2022.11.1.0"
+__version__ = "2022.11.1.1"
 
 
 def get_stack(
@@ -73,9 +73,12 @@ def get_stack(
                 parameters = cf.describe_stacks(
                     StackName=summary['StackName']
                 )
-                print(f"Writing {work_dir}/{summary['StackName']}.parameters...")
-                with open(f"{work_dir}/{summary['StackName']}.parameters", "w+") as f:
-                    f.write(json.dumps(parameters['Stacks'][0]['Parameters']))
+                try:
+                    print(f"Writing {work_dir}/{summary['StackName']}.parameters...")
+                    with open(f"{work_dir}/{summary['StackName']}.parameters", "w+") as f:
+                        f.write(json.dumps(parameters['Stacks'][0]['Parameters']))
+                except KeyError as e:
+                    print(f"No parameter found for {summary['StackName']}.")
 
     return None
 
@@ -89,7 +92,7 @@ def get_params():
         usage="%(prog)s [options]",
     )
     myparser.add_argument(
-        "-v", "--version", action="version", version="%(prog)s 2022.11.1.0"
+        "-v", "--version", action="version", version="%(prog)s 2022.11.1.1"
     )
     myparser.add_argument(
         "-o",
